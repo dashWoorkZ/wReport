@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {   
+    
+    /* ==// Color Scheme \\== */
+    /* ///=== Primary And Accent Cours ===\\\ */
+    --clr-primary-blue: hsl(240, 100%, 50%);
+    --clr-primary-blue-accent: hsla(240, 100%, 50%, 0.3);
+    --clr-primary-blue-accent-fill: hsla(240, 49%, 52%, 0.5);
+    --clr-primary-blue-accent-light: hsl(192, 74%, 49%);
+    --clr-accent-blue: hsl(184, 100%, 50%);
+    --clr-primary-purple: hsl(300, 100%, 25%);
+    --clr-primary-purple-accent: hsla(300, 100%, 25%, 0.3);
+    --clr-primary-purple-accent-PN-BG-hover: hsl(281, 47%, 62%);
+    --clr-primary-white: hsl(0, 0%, 100%);
+    --clr-primary-red-accent-BG: hsl(305, 32%, 71%);
+    --clr-accent-gold: hsl(51, 100%, 50%);
+    --clr-primary-gold: rgb(255, 215, 0);
+    --clr-primary-gold-accent-BG: hsla(40, 27%, 2%, 0.5);
+    --clr-primary-gold-accent-BG-tabContent: hsla(43, 74%, 49%, 0.2);
+    --bodyBackGround:linear-gradient(127deg, #ff6f3a, #3a8a8d, #a03aff, #ffce3a);
+    --clr-primary-beige: beige;
+    --clr-primary-yellow: hsl(60, 100%, 50%);
+    --clr-primary-orange-accent: rgb(218, 165, 32);
+    
+    /* ///=== Named Colours ===\\\ */
+    --weatherCont-BG: hsla(0, 0%, 100%, 0.3);
+    --weatherCont-BS: hsla(0, 0%, 0%, 0.1);
+    --weatherCont-Border:hsla(0, 0%, 100%, 0.1);
+    --dodgerblue: hsl(210, 100%, 56%);
+    --clr-mediaM-BG:hsl(212, 90%, 37%);
+    --clr-titleHeader:hsl(212, 100%, 59%);
+    --button-border: hsl(240, 83%, 14%);
+    --titleShadow:  0 0.2vw 0.2vw hsl(0, 100%, 50%);
+    --titleShadowHover: 0 0.2vw 0.2vw var(--clr-accent-blue);
+    --clr-merch-shadow: hsl(347, 77%, 76%);
+    --esc: hsla(0, 0%, 100%, 0.1);
+    --transparent: transparent;
+
+    /* ///=== Measures ==\\\ */
+    --maxWidth: 100svw;
+    --min-width:100%;
+    --pad-div: 0.5rem 1rem;
+    --pad05Rem: 0.5rem;
+    --pad25Rem: 0.25rem;
+
+    }
+    
+    @media (prefers-reduced-motion: no-preference) {
+  :has(:target) {
+      scroll-behavior: smooth;
+      scroll-padding-top: 3rem;
+  }
+}
+
+html,
+body {
+    min-width: 100svw;
+    min-height: 100svh;
+    scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+
+button {
+    cursor: pointer;
+    text-wrap: wrap;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: inline block;
+}
+
+h1,
+h2 {
+    text-align: center;
+    text-transform: capitalize;
+    
+}
+
+button,
+a,
+h1,
+h2,
+h3,
+h4,
+figcaption {
+    padding-block: 0.5rem;
+}
+
+.grid-auto-fit {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(30ch, 1fr)));
+    place-content: center;
+}
+
+.show {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .hide {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  body {
+	padding: 2rem 1,5rem;
+	display: grid;
+	grid-template-columns: 1fr;
+	background-image:var(--bodyBackGround);
+    background-repeat: no-repeat;
+    font-size: 1.2rem;
+}
+
+#landing {  
+	display: grid;
+	position: relative;
+	padding: 1rem 1rem;
+    display: inline flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+#landing .daily {
+    position: relative;
+    min-width: 15rem;
+    z-index: 1;
+}
+
+#landing .daily img {
+position: absolute;
+left: 0;
+right: 0;
+top: 0;
+bottom: 0;
+z-index: 2;
+cursor: pointer;
+}
+
+    
+/* ///=== Weather App ===\\\ */
+
+    #landing #weather-container::backdrop {
+        background: var(--dodgerblue);
+        opacity: 0.2;
+    }
+ 
+    #weather-container {
+        position:fixed;
+        inset: 6.5rem 0 auto;
+        background: var(--weatherCont-BG);
+        max-width: 90rem;
+        padding-block: 0.5rem;
+        border-radius: 1rem;
+        box-shadow: 0 8px 32px var(--weatherCont-BS);
+        backdrop-filter: blur(0.625rem);
+        border: 1px solid var(--weatherCont-Border);
+        outline: 0.1rem inset var(--clr-accent-blue);
+        text-align: center;
+        text-shadow: 0 0.1rem 0.1rem var(--dodgerblue);
+
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        margin-inline: auto;
+    }
+    
+    h2, label, p {
+        color: #fff;
+        text-shadow: 0 0.05rem 0.1rem var(--dodgerblue);
+        margin: 8px 0;
+        text-align: center;
+    }
+
+    #weather-container #weather-container .searchWeather {
+        display: flex;
+        justify-content: center;
+    }
+
+    #weather-container .searchWeather .wr__img {
+
+        --bg-image: url("../imgs/logos/weatherReport_Logo_thumb.png");
+        --bg-image-opacity: 1;
+
+       position: relative;
+        isolation: isolate;
+        max-width: 12.5rem;
+
+        height: 6.3125rem;
+       inset: 0;
+        display: flex;
+        margin-inline: auto;
+        align-items: center;
+        z-index: 2;
+        isolation: isolate;
+        filter:drop-shadow0 -0.2rem 0.5rem 0.5rem var(--clr-primary-gold), 0 0.2rem 0.5rem 0.5rem var(--clr-primary-gold);
+       
+    }
+
+    #weather-container .searchWeather .wr__img::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        opacity: var(--bg-image-opacity);
+
+        background-image: var(--bg-image);
+        background-size: cover;
+        background-position: center;
+ 
+    }
+
+    #weather-container .searchWeather .citySearch {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    #weather-container .searchWeather .citySearch input {
+        max-width: 25rem;
+        padding-inline: 0.5rem;
+        padding-block: 0.5rem;
+        box-sizing: border-box;
+        border-radius: 10px;
+        border: 1px solid hsl(0, 26%, 4%);
+        outline: 0.1rem inset var(--clr-accent-blue);
+        inset: 0 auto;
+        text-transform: capitalize;
+    }
+    
+    #weather-container .searchWeather .citySearch button {
+        background: hsl(275, 71%, 85%);
+        color: hsl(0, 0%, 100%);
+        text-shadow: 0 0.05rem 0.1rem var(--dodgerblue);
+        padding-inline: 0.625rem;
+        padding-block: 0.5rem;
+        border: 0.1rem inset var(--clr-primary-gold);
+        outline: 0.1rem ridge var(--dodgerblue);
+        border-radius: 10px;
+        cursor: pointer;
+        width: 100px;
+        font-size: 15px;
+        transition: all 500ms ease-in-out;
+    }
+    
+    #weather-container .searchWeather .citySearch button:hover {
+        background: hsl(268, 64%, 56%);
+    }
+
+    #weather-container .weatherReport {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap;
+        align-items: center;
+    }
+
+    #weather-container .weatherReport #report {
+        display: grid;
+        grid-template-columns: auto-fit minmax(30rem, repeat(4, 1fr));
+        grid-template-areas:
+        'current current scales scales';
+        width: 100%;
+    }
+    
+    .wrpt {
+    display: inline flex;
+    flex-direction: column;
+    align-items: baseline;
+    justifi-content: space-evenly;
+    }
+
+    #weather-container .weatherReport #report #current  {
+        grid-area: current;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 0.5rem;
+    }
+
+    #weather-container .weatherReport #report #current #conv-scales {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #weather-container .weatherReport #report #current #conv-scales .converted {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding-block-start: 1.5rem;
+        padding-block-end: 0.5rem;
+    }
+
+    #weather-container .weatherReport #report #current #conv-scales .converted span {
+        flex-basis: 100%;
+        max-width: 14rem;
+        padding-inline: 0.5rem;
+        padding-block: 0.5rem;
+        font-size: clamp(2rem, 2.5ch, 3rem);
+        color: var(--clr-primary-gold);
+        text-shadow: 0 0.1rem 0.1rem var(--dodgerblue);
+        font-weight: 700;
+        letter-spacing: 0.1rem;
+    }
+
+    #weather-container .weatherReport #report #current .reported  {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+    }
+        
+    #weather-container .weatherReport #report #current .reported #temp-div {
+        font-size: 48px;
+    }
+    
+    #weather-container .weatherReport #report #current .reported #weather-info {
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--clr-primary-gold);
+        text-shadow: 0 0.05rem 0.1rem var(--dodgerblue);
+    }
+
+    #weather-container .weatherReport #forecast {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #weather-container .weatherReport #report #current .reported #weather-icon {
+        width: 200px;
+        height: 200px;
+        /* margin-inline: auto;;  */
+        display: none;
+    }
+    
+    #weather-container .weatherReport #forecast #hourly-forecast {
+        overflow-x: auto;
+        white-space: nowrap;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+    }
+    
+    #weather-container .weatherReport #forecast #hourly-forecast .hourly-item {
+        flex: 0 0 auto;
+        width: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 10px;
+        margin-bottom: 1rem;
+        color: hsl(0, 0%, 100%);
+        text-shadow: 0 0.05rem 0.1rem var(--dodgerblue);
+        font-weight: 700;
+    }
+    
+    #weather-container .weatherReport #forecast #hourly-forecast .hourly-item img {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 5px;
+    }
+    
+    #weather-container .esc {
+		display: inline flex;
+		justify-content: flex-end;
+		padding-inline: 1rem;
+		align-items: center;
+    }
+    #weather-container .esc::after {
+		content: "ESC to Exit";
+		font-size: 1.5rem;
+		font-weight: 700;
+		font-family: Roboto, sans-serif;
+		letter-spacing: 0.1rem;
+		color: var(--transparent);
+		text-shadow: 0 0.025rem 0 var(--esc);
+    }
+    
+    #hourly-heading {
+        color: hsl(0, 0%, 100%);
+        text-shadow: 0 0.05rem 0.1rem var(--dodgerblue);
+        margin-top: 10px;
+    }
+    
+    #weather-container {
+        scale: 0.8;
+    }
+

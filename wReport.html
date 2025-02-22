@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Courtesy of dccode https://www.youtube.com/watch?v=bznJPt4t_4s -->
+ <!-- Learn the Javascript DOM with this project - Memory Game -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/wReport.css">
+
+    <title>Weather Report</title>
+</head>
+<body>
+    <section id="landing" role="container">
+        <div class="daily">
+            <img  class="weather-app" src="imgs/wReport_logo.png" alt="">
+        </div>
+</section>
+        <dialog class="modal weatherApp" id="WeatherAppModal">
+            <section class="modal__content" id="modalContent">
+            <div id="weather-container">
+                <section class="searchWeather">
+                    <h2 class="wr__img"></h2>
+                    <div class="citySearch">
+                        <input type="text" id="city" placeholder="Enter city">
+                        <button onclick="getWeather()">Search</button>
+                    </div>
+                </section>
+                <div class="weatherReport">
+                    <div class="wrpt">
+                        <div id="report">
+                            <section id="current">
+                                <div class="reported">
+                                    <img id="weather-icon" alt="Weather Icon">
+
+                                    <div id="temp-div"></div>
+
+                                    <div id="weather-info"></div>
+                                </div>
+                                <div id="conv-scales"></div>
+                            </section>
+                        </div>
+                        <div id="forecast">
+                            <div id="hrly"></div>
+                            <div id="hourly-forecast"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="esc"></div>
+            </div>
+
+            </section>
+        </dialog>
+
+<!-- \\\=== End Weather Report HTML Code ===/// -->
+<script src="js/wReport.js"></script>
+</body>
+</html>
