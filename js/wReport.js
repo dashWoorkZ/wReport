@@ -9,7 +9,7 @@
    /* ///=== End Open Weather App Modal ===\\\ */
 
     function getWeather() {
-    const apiKey = '9f12e670d816b80eb604116aaad1eca8';
+    const apiKey = '';
     const city = document.getElementById('city').value;
    
     if (!city) {
