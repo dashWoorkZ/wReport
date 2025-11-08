@@ -1,3 +1,3 @@
 <img src="imgs/weatherReport_Logo_thumb.png">
-# Weather Report
+#WReport
 Openweathermap API Weather Report
